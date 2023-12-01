@@ -45,7 +45,7 @@ public class RequestService {
         request.setDateTime(LocalDateTime.now());
         request.setStatus(Status.ACCOMPLISHMENT);
         request.getItems().forEach(item -> item.setRequest(request));
-        Request save = repository.save(request);
+        repository.save(request);
 
         return modelMapper.map(request, DtoRequest.class);
     }

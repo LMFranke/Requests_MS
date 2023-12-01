@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 @Entity
-@Table(name = "item_request")
+@Table(name = "request_item")
 @Getter
 @Setter
 @NoArgsConstructor
