@@ -4,6 +4,7 @@ import br.com.lucasfood.requests.dto.DtoRequest;
 import br.com.lucasfood.requests.dto.DtoStatus;
 import br.com.lucasfood.requests.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -50,6 +51,11 @@ public class RequestController {
     public ResponseEntity<Void> authPayment(@PathVariable @NotNull Long id) {
         service.authPaymentRequest(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/port")
+    public String returnPort(@Value("${local.server.port}") String port){
+        return String.format("Request answered by the instance running on the port %s", port);
     }
 
 }
